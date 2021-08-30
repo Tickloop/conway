@@ -64,7 +64,7 @@ export default class App{
 
     clear(){
         // we will refresh the app
-        this.app.refresh();
+        this.app.clear();
 
         // set the start-stop-refresh button to start state
         document.getElementById('start-pause-restart-btn').innerText = "Start";

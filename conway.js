@@ -14,33 +14,8 @@ export default class Conway {
         const ROWS = this.ROWS;
         const COLS = this.COLS;
 
-        // create a ROWS x COLS array and populate it with NODE objects
-        const BOARD = [];
-        for(let i = 0; i < ROWS; i++){
-            BOARD[i] = [];
-            for(let j = 0; j < COLS; j++){
-                // create a div and append it to the app div
-                const _div = document.createElement('div');
-                _div.classList.add('grid-item');
-                target.append(_div);
-
-                // create a new NODE object, default state is 0
-                if(this.#randomize()){
-                    BOARD[i][j] = new NODE(i, j, _div);
-                }else{
-                    BOARD[i][j] = new NODE(i, j, _div, 1);
-                }
-            }
-        }
-
-        this.BOARD = BOARD;
-
-        for(let i = 0; i < ROWS; i++){
-            for(let j = 0; j < COLS; j++){
-                // now introduce each of the cells to its neighbors
-                this.#introduce_neighbor(BOARD[i][j], i, j);
-            }
-        }
+        // create a ROWS x COLS array and populate it with random NODE objects
+        this.random();
     }
 
     #randomize(){
@@ -145,10 +120,12 @@ export default class Conway {
     }
 
     stop(){
-        clearInterval(this.interval);
-        this.interval = false;
-        this.step_count = 0;
-        console.log('Simulation stopped');
+        if(this.isRunning){
+            clearInterval(this.interval);
+            this.interval = false;
+            this.step_count = 0;
+            console.log('Simulation stopped');
+        }
     }
 
     random(){
@@ -190,7 +167,7 @@ export default class Conway {
         }
     }
 
-    refresh(){
+    clear(){
         // stop the current simulation
         this.stop();
 

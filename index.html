@@ -9,20 +9,33 @@
 </head>
 <body>
     <div class="menu" id="menu">
-        <div class="btn-group">
-            <button class="btn" id="start-pause-restart-btn">Start</button>
+        <div class="header">
+            <h3>Conway's Game of Life</h3>
+            <button class="btn" id="close-btn">X</button>
         </div>
-
-        <div class="btn-group">
-            <button class="btn" id="clear-btn">Clear</button>
+        <div class="info">
+            <div class="info-group">
+                <label for="iterrations">Max iterrations: </label>
+                <input id="max-itr-input">
+            </div>
+            <div class="info-group">
+                <label for="iterrations">Iterration Speed: </label>
+                <input id="speed-input">
+            </div>
+            <div class="info-group">
+                <label for="iterrations">Iterration Number: </label>
+                <span id="itr-num-span">0</span>
+            </div>
         </div>
-
         <div class="btn-group">
-            <button class="btn" id="random-btn">Random</button>
-        </div>
-
-        <div class="btn-group">
-            <button class="btn" id="step-btn">Step</button>
+            <div class="btn-group">
+                <button class="btn" id="start-pause-restart-btn">Start</button>
+                <button class="btn" id="clear-btn">Clear</button>
+            </div>
+            <div class="btn-group">
+                <button class="btn" id="random-btn">Random</button>
+                <button class="btn" id="step-btn">Step</button>
+            </div>
         </div>
     </div>
     <div class="app" id="app">
