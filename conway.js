@@ -217,14 +217,15 @@ export default class Conway {
             }
         }
     
-        if(!forced){
-            // called for each step in the game of life
-            this.step_count += 1;
+        // called for each step in the game of life
+        this.step_count += 1;
         
-            if(this.step_count === this.max){
-                // stop the interval
-                this.stop();
-            }
+        if(this.step_count === this.max){
+            // stop the interval
+            this.stop();
         }
+
+        // update the step count on the UI
+        document.getElementById('itr-num-span').innerText =  this.step_count;
     }
 }

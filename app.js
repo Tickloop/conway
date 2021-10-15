@@ -35,6 +35,23 @@ export default class App{
 
         const step_btn = document.getElementById('step-btn');
         step_btn.addEventListener('click', this.step.bind(this));
+
+        const close_btn = document.getElementById('close-btn');
+        close_btn.addEventListener('click', this.close_div);
+    }
+
+    close_div(e){
+        // close the menu div
+        const _body = document.getElementsByClassName('content')[0];
+
+        // hide the menu
+        if(_body.style.display === "none"){
+            _body.style.display = "block";
+            e.target.innerText = "X";
+        }else{
+            _body.style.display = "none";
+            e.target.innerText = "V";
+        }
     }
 
     start_stop(){

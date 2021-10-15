@@ -48,12 +48,12 @@
     opacity: 80%;
 }
 
-.menu > .info > .info-group > input {
+#max-itr-input {
     outline: none;
     border: none;
-    border-bottom: 2px solid;
-    width: 30px;
 }
+
+
 
 .header{
     display: flex;
