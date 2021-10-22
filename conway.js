@@ -1,7 +1,7 @@
 import NODE from './node.js';
 
 export default class Conway {
-    constructor(target, rows = 10, cols = 10, step_duration = 100, max_it = 100){
+    constructor(target, rows = 10, cols = 10, step_duration = 100, max_it = Infinity){
         this.target = target;
         this.interval = false;
         this.duration = step_duration;
@@ -104,6 +104,12 @@ export default class Conway {
 
     set step_duration(step_duration){
         this.duration = step_duration;
+
+        // change the interval speed
+        if(this.isRunning){
+            clearInterval(this.interval);
+            this.interval = setInterval(this.step.bind(this), this.duration);
+        }
     }
 
     get step_duration(){
@@ -117,15 +123,19 @@ export default class Conway {
     start(){
         this.interval = setInterval(this.step.bind(this), this.duration);
         console.log('Simulation started');
+
+        // don't need to update the UI here, after first step, UI will be udpated.
     }
 
     stop(){
         if(this.isRunning){
             clearInterval(this.interval);
             this.interval = false;
-            this.step_count = 0;
             console.log('Simulation stopped');
         }
+
+        // update the UI
+        this.updateUI();
     }
 
     random(){
@@ -199,6 +209,12 @@ export default class Conway {
                 this.#introduce_neighbor(BOARD[i][j], i, j);
             }
         }
+
+        // reinitialize the number of iterrations
+        this.step_count = 0;
+
+        // update the UI
+        this.updateUI();
     }
 
     step(forced=false){
@@ -225,7 +241,21 @@ export default class Conway {
             this.stop();
         }
 
+        this.updateUI();
+    }
+
+    updateUI(){
         // update the step count on the UI
         document.getElementById('itr-num-span').innerText =  this.step_count;
+        
+        // the start stop button we will use
+        const start_stop_btn = document.getElementById('start-pause-btn');
+
+        // update the start_stop button
+        if (this.isRunning){
+            start_stop_btn.innerText = "Pause";
+        }else{
+            start_stop_btn.innerText = "Start";
+        }
     }
 }

@@ -23,9 +23,8 @@ export default class App{
         this.app = new Conway(this.target, this.ROW, this.COL);
 
         // setup click listeners for the buttons
-        const start_stop_btn = document.getElementById('start-pause-restart-btn');
+        const start_stop_btn = document.getElementById('start-pause-btn');
         start_stop_btn.addEventListener('click', this.start_stop.bind(this));
-        start_stop_btn.addEventListener('click', this.toggle_start_stop);
 
         const clear_btn = document.getElementById('clear-btn');
         clear_btn.addEventListener('click', this.clear.bind(this));
@@ -38,6 +37,10 @@ export default class App{
 
         const close_btn = document.getElementById('close-btn');
         close_btn.addEventListener('click', this.close_div);
+
+        // setup change listener for drag bar for iteration speed
+        const speed_slider = document.getElementById('speed-input');
+        speed_slider.addEventListener('change', this.change_speed.bind(this));
     }
 
     close_div(e){
@@ -64,27 +67,12 @@ export default class App{
         }
     }
 
-    toggle_start_stop(e){
-        const btn = e.target;
-        // we will rename the button based on current state of the button
-        if(btn.innerText == "Start"){
-            // next state is "Pause"
-            btn.innerText = "Pause";
-        }else if(btn.innerText == "Pause"){
-            // next state is "Restart"
-            btn.innerText = "Restart";
-        }else{
-            // go back to Pause state, currently in "Restart" state
-            btn.innerText = "Pause";
-        }
-    }
-
     clear(){
         // we will refresh the app
         this.app.clear();
 
         // set the start-stop-refresh button to start state
-        document.getElementById('start-pause-restart-btn').innerText = "Start";
+        document.getElementById('start-pause-btn').innerText = "Start";
     }
 
     random(){
@@ -92,11 +80,17 @@ export default class App{
         this.app.random();
 
         // set the start-stop-refresh button to start stats
-        document.getElementById('start-pause-restart-btn').innerText = "Start";
+        document.getElementById('start-pause-btn').innerText = "Start";
     }
 
     step(){
         // take the next step
         this.app.step(true);
+    }
+
+    change_speed(e){
+        // change the iterations speed 
+        const speed = e.target.value;
+        this.app.step_duration = Number(speed);
     }
 }
