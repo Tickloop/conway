@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color:  #3F4A3C;
+    font-family: 'Montserrat', sans-serif;
 }
 
 :root{
@@ -19,17 +21,13 @@
 }
 
 .grid-item{
-    border: 1px solid gray;
+    border: 1px solid #3F4A3C;
     width: 25px;
     height: 25px;
 }
 
 .alive{
-    background: green;
-}
-
-.menu{
-    position: absolute;
+    background: rgb(0, 128, 0);
 }
 
 .btn-group > .btn{
@@ -40,12 +38,28 @@
     border-radius: 10px;
 }
 
-.menu{
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    background: #fff;
-    opacity: 80%;
+.menu {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    background: #A3AF9E;
+    transition: 0.5s;
+}
+
+.header { 
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.content { 
+    margin: 15px;
 }
 
 #max-itr-input {
@@ -53,23 +67,24 @@
     border: none;
 }
 
-
-
-.header{
-    display: flex;
-    flex-direction: row;
-    justify-content: baseline;
-}
-
-.header > .btn{
-    width: 20px;
-    height: 20px;
-    outline: none;
-    border: 1px solid;
-    border-radius: 10px;
-}
-
-.header > h3{
+#open-btn {
     display: inline-block;
-    margin-right: 5px;
+    font-size: 2.5em;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    color: #A3AF9E;
+}
+
+#close-btn {
+    font-size: 2.5em;
+}
+
+.flex-div {
+    display: flex;
+}
+
+.information {
+    min-width: 300px;
+    width: 300px;
 }
