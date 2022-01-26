@@ -37,28 +37,28 @@
         <div class="menu" id="menu">
             <div class="header">
                 <h3>Conway's Game of Life</h3>
-                <span id="close-btn"><i class="fas fa-info-circle"></i></span>
+                <span id="close-btn"><i class="fas fa-question-circle"></i></span>
             </div>
             <div class="content">
-                <div class="info">
-                    <div class="info-group">
-                        <label for="iterrations">Iterration Speed (ms): </label>
+                <div class="info-group">
+                    <label for="iterrations">Generation duration: </label>
+                    <div class="iteration-speed">
+                        <span>10ms</span>
                         <input type="range" id="speed-input" min="10" max="200" step="1" value="100">
-                    </div>
-                    <div class="info-group">
-                        <label for="iterrations">Iterration Number: </label>
-                        <span id="itr-num-span">0</span>
+                        <span>200ms</span>
                     </div>
                 </div>
+                <div class="info-group">
+                    <label for="iterrations">Generation: </label>
+                    <span id="itr-num-span">0</span>
+                </div>
                 <div class="btn-group">
-                    <div class="btn-group">
-                        <button class="btn" id="start-pause-btn">Start</button>
-                        <button class="btn" id="clear-btn">Clear</button>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn" id="random-btn">Random</button>
-                        <button class="btn" id="step-btn">Step</button>
-                    </div>
+                    <button class="btn" id="start-pause-btn">Start</button>
+                    <button class="btn" id="clear-btn">Clear</button>
+                </div>
+                <div class="btn-group">
+                    <button class="btn" id="random-btn">Random</button>
+                    <button class="btn" id="step-btn">Step</button>
                 </div>
             </div>
         </div>

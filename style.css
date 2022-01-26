@@ -30,9 +30,13 @@
     background: rgb(0, 128, 0);
 }
 
+.btn-group {
+    margin-top: 5px;
+}
+
 .btn-group > .btn{
     padding: 10px;
-    width: 100px;
+    width: 80px;
     border: 1px solid;
     opacity: 90%;
     border-radius: 10px;
@@ -95,4 +99,14 @@
 .information {
     min-width: 300px;
     width: 300px;
+}
+
+.iteration-speed {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.info-group {
+    margin-top: 5px;
 }
