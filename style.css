@@ -110,3 +110,7 @@
 .info-group {
     margin-top: 5px;
 }
+
+.content > p {
+    margin-top: 10px;
+}
